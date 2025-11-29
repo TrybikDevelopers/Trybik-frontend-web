@@ -149,7 +149,7 @@
             "language": "Language",
             "polish": "Polish",
             "english": "English",
-            "hideLectures": "Hide lectures"
+            "showLectures": "Show lectures"
         },
         "mobileApp": {
             "text": "Mobile app",

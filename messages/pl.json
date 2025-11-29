@@ -149,7 +149,7 @@
             "language": "Język",
             "polish": "Polski",
             "english": "Angielski",
-            "hideLectures": "Ukryj Wykłady"
+            "showLectures": "Pokaż Wykłady"
         },
         "mobileApp": {
             "text": "Aplikacja mobilna",

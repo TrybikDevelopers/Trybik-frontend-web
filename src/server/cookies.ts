@@ -1,7 +1,7 @@
 import "server-only";
 
 import {
-    HIDE_LECTURES_COOKIE_KEY,
+    SHOW_LECTURES_COOKIE_KEY,
     TIMETABLE_SETTINGS_COOKIE_KEY,
     timetableSettingsCookieOptions,
 } from "@/constants/cookies";
@@ -52,9 +52,9 @@ export const getTimetableSettings =
         }
     };
 
-export const getHideLectures = async (): Promise<boolean> => {
-    const hideLecturesCookie = (await cookies()).get(HIDE_LECTURES_COOKIE_KEY);
-    if (!hideLecturesCookie) return false;
+export const getShowLectures = async (): Promise<boolean> => {
+    const showLecturesCookie = (await cookies()).get(SHOW_LECTURES_COOKIE_KEY);
+    if (!showLecturesCookie) return true;
 
-    return hideLecturesCookie.value === "true";
+    return showLecturesCookie.value === "true";
 };

@@ -7,13 +7,13 @@ type Props = {
     currentDayData: Timetable["data"][number];
     weekDayIndex: number;
     weekParity: "EVEN" | "ODD";
-    hideLectures: boolean;
+    showLectures: boolean;
 };
 
 const useLessonsCards = (
     currentDayData: Timetable["data"][number],
     weekParity: "EVEN" | "ODD",
-    hideLectures: boolean,
+    showLectures: boolean,
 ) => {
     const getLessons = useCallback(
         (index: number) => {
@@ -22,18 +22,16 @@ const useLessonsCards = (
                     ? currentDayData.even
                     : currentDayData.odd;
 
-            // filter and sort (to make sure that the lessons are in the same order)
             const lessons = classData
                 .filter((l) => l.rowId === index)
                 .filter((l) => {
-                    // Hide lectures if the setting is enabled
-                    return hideLectures ? l.type !== "LECTURE" : true;
+                    return !showLectures ? l.type !== "LECTURE" : true;
                 })
                 .sort((a, b) => a.name.localeCompare(b.name));
 
             return lessons;
         },
-        [currentDayData, weekParity, hideLectures],
+        [currentDayData, weekParity, showLectures],
     );
 
     return { getLessons };
@@ -44,12 +42,12 @@ export default function LessonsCards({
     currentDayData,
     weekDayIndex,
     weekParity,
-    hideLectures,
+    showLectures,
 }: Props) {
     const { getLessons } = useLessonsCards(
         currentDayData,
         weekParity,
-        hideLectures,
+        showLectures,
     );
 
     return (

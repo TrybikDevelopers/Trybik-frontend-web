@@ -7,12 +7,12 @@ import TimetableHeader from "./timetable-header";
 
 type Props = {
     timetableSettings: TimetableSettingsSchema;
-    hideLectures: boolean;
+    showLectures: boolean;
 };
 
 export default function MobileTimetable({
     timetableSettings,
-    hideLectures,
+    showLectures,
 }: Props) {
     const {
         hours,
@@ -38,7 +38,7 @@ export default function MobileTimetable({
                 currentDayData={currentDayData}
                 weekDayIndex={selectedDayIndex}
                 weekParity={weekParity}
-                hideLectures={hideLectures}
+                showLectures={showLectures}
             />
         </div>
     );

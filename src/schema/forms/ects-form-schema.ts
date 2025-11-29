@@ -4,7 +4,9 @@ import * as z from "zod/mini";
 export const getEctsFormSchema = (t: TFunction<"ectsCalculator.form">) => {
     const ectsEntrySchema = z.object({
         name: z.string().check(z.minLength(1, t("nameRequired"))),
-        ects: z.string().check(z.regex(/^\d+$/, t("ectsInvalid"))),
+        ects: z
+            .string()
+            .check(z.regex(/^(?:[1-9]|[12][0-9]|30)$/, t("ectsInvalid"))),
         grade: z
             .string()
             .check(

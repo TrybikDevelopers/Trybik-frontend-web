@@ -1,7 +1,7 @@
 import { env } from "@/env";
 
 export const TIMETABLE_SETTINGS_COOKIE_KEY = "NEXT_TIMETABLE_SETTINGS" as const;
-export const HIDE_LECTURES_COOKIE_KEY = "NEXT_HIDE_LECTURES" as const;
+export const SHOW_LECTURES_COOKIE_KEY = "NEXT_SHOW_LECTURES" as const;
 
 export const timetableSettingsCookieOptions = {
     path: "/",
@@ -11,7 +11,7 @@ export const timetableSettingsCookieOptions = {
     secure: env.NEXT_PUBLIC_IS_PROD,
 };
 
-export const hideLecturesCookieOptions = {
+export const showLecturesCookieOptions = {
     path: "/",
     maxAge: 60 * 60 * 24 * 365, // 1 year
     httpOnly: false,

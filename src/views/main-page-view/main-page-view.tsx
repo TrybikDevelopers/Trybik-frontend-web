@@ -1,5 +1,5 @@
 import DownloadMobileAppDialog from "@/components/download-mobile-app-dialog";
-import { getHideLectures } from "@/server/cookies";
+import { getShowLectures } from "@/server/cookies";
 import { getValidTimetableSettings } from "@/server/data-access/timetable";
 import { api, HydrateClient } from "@/trpc/server";
 import DesktopTimetable from "./components/desktop-timetable/desktop-timetable";
@@ -25,7 +25,7 @@ export default async function MainPageView() {
     });
     void api.timetable.getAcademicHours.prefetch();
 
-    const hideLectures = await getHideLectures();
+    const showLectures = await getShowLectures();
 
     return (
         <>
@@ -33,12 +33,12 @@ export default async function MainPageView() {
                 <div className="text-foreground flex h-full w-full flex-col">
                     <MobileTimetable
                         timetableSettings={timetableSettings}
-                        hideLectures={hideLectures}
+                        showLectures={showLectures}
                     />
 
                     <DesktopTimetable
                         timetableSettings={timetableSettings}
-                        hideLectures={hideLectures}
+                        showLectures={showLectures}
                     />
                 </div>
             </HydrateClient>

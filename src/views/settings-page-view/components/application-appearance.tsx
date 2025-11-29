@@ -10,7 +10,7 @@ import {
     SelectValue,
 } from "@/components/ui/select";
 import useFirstRender from "@/hooks/use-first-render";
-import useHideLectures from "@/hooks/use-hide-lectures";
+import useShowLectures from "@/hooks/use-show-lectures";
 import { useRouter } from "@/i18n/navigation";
 import { Globe, Moon, Projector } from "lucide-react";
 import { type Locale, useLocale, useTranslations } from "next-intl";
@@ -24,7 +24,7 @@ export default function ApplicationAppearance() {
 
     const { setTheme, theme } = useTheme();
     const { isFirstRender } = useFirstRender();
-    const { hideLectures, toggleHideLectures } = useHideLectures();
+    const { showLectures, toggleShowLectures } = useShowLectures();
 
     return (
         <div>
@@ -44,10 +44,10 @@ export default function ApplicationAppearance() {
                         }
                     />
                     <SettingsToggle
-                        title={t("hideLectures")}
+                        title={t("showLectures")}
                         icon={Projector}
-                        checked={isFirstRender ? false : hideLectures}
-                        onCheckedChange={toggleHideLectures}
+                        checked={isFirstRender ? false : showLectures}
+                        onCheckedChange={toggleShowLectures}
                     />
                     <div className="flex items-center justify-between py-3">
                         <div className="flex items-center gap-3">

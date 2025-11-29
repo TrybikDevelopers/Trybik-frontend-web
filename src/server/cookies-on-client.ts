@@ -1,20 +1,20 @@
 import {
-    HIDE_LECTURES_COOKIE_KEY,
-    hideLecturesCookieOptions,
+    SHOW_LECTURES_COOKIE_KEY,
+    showLecturesCookieOptions,
 } from "@/constants/cookies";
 import { getCookie, setCookie } from "cookies-next";
 
-export const getHideLecturesOnClient = () => {
-    const value = getCookie(HIDE_LECTURES_COOKIE_KEY);
-    if (!value) return false;
+export const getShowLecturesOnClient = () => {
+    const value = getCookie(SHOW_LECTURES_COOKIE_KEY);
+    if (!value) return true;
 
     return value === "true";
 };
 
-export const setHideLecturesOnClient = (value: boolean) => {
+export const setShowLecturesOnClient = (value: boolean) => {
     setCookie(
-        HIDE_LECTURES_COOKIE_KEY,
+        SHOW_LECTURES_COOKIE_KEY,
         value.toString(),
-        hideLecturesCookieOptions,
+        showLecturesCookieOptions,
     );
 };
