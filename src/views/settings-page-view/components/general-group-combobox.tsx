@@ -76,7 +76,7 @@ export default function GeneralGroupCombobox({ generalGroups }: Props) {
                                 />
                                 <CommandList className="w-full">
                                     <CommandEmpty>
-                                        {'t("noGeneralGroupFound")'}
+                                        {t("groupNotFound")}
                                     </CommandEmpty>
                                     <CommandGroup className="w-full">
                                         {generalGroups.map((generalGroup) => (

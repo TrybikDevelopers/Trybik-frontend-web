@@ -141,7 +141,8 @@
             "generalGroup": "General Group",
             "labGruop": "Laboratory",
             "kompLabGruop": "Computer Laboratory",
-            "projGruop": "Project"
+            "projGruop": "Project",
+            "groupNotFound": "No group found"
         },
         "applicationAppearance": {
             "text": "Application appearance",
