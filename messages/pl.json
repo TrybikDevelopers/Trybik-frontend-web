@@ -149,7 +149,8 @@
             "language": "Język",
             "polish": "Polski",
             "english": "Angielski",
-            "showLectures": "Pokaż Wykłady"
+            "showLectures": "Pokaż Wykłady",
+            "groupNotFound": "Nie znaleziono grupy"
         },
         "mobileApp": {
             "text": "Aplikacja mobilna",
