@@ -141,7 +141,8 @@
             "generalGroup": "Dziekańska",
             "labGruop": "Laboratoryjna",
             "kompLabGruop": "Komputerowa",
-            "projGruop": "Projektowa"
+            "projGruop": "Projektowa",
+            "groupNotFound": "Nie znaleziono grupy"
         },
         "applicationAppearance": {
             "text": "Wygląd aplikacji",

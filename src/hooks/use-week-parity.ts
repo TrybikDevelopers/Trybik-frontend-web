@@ -12,23 +12,25 @@ const useWeekParity = (): { weekParity: "EVEN" | "ODD" } => {
         const getWeekStart = (date: Date): Date => {
             const d = new Date(date);
             const day = d.getDay();
-            const diff = d.getDate() - day + (day === 0 ? -6 : 1);
-            return new Date(d.setDate(diff));
+            let diff = 1 - day;
+            if (day === 0) diff = -6;
+            d.setDate(d.getDate() + diff);
+            d.setHours(0, 0, 0, 0);
+            return d;
         };
 
         const referenceWeekStart = getWeekStart(referenceDate);
         const currentWeekStart = getWeekStart(now);
 
-        const daysDiff = Math.floor(
-            (currentWeekStart.getTime() - referenceWeekStart.getTime()) /
-                (1000 * 60 * 60 * 24),
-        );
+        const msDiff =
+            currentWeekStart.getTime() - referenceWeekStart.getTime();
+        const daysDiff = Math.floor(msDiff / (1000 * 60 * 60 * 24));
+
         const weeksDiff = Math.floor(daysDiff / 7);
 
-        const isEven = weeksDiff % 2 !== 0;
-        const weekParity = isEven ? "EVEN" : "ODD";
+        const isEven = weeksDiff % 2 === 0;
 
-        return weekParity;
+        return isEven ? "EVEN" : "ODD";
     }, []);
 
     return { weekParity };
